@@ -14,12 +14,19 @@ namespace AllRegistredProblems
 {
     public partial class Form1 : Form
     {
-        SqlConnection myConnection = new SqlConnection(@"Data Source=GOLD-PEN\SQLEXPRESSMES;Initial Catalog = MES_Project; Integrated Security = True");
+        SqlConnection myConnection = new SqlConnection(@"Data Source=GOLD-PEN\SQLEXPRESSMES;Initial Catalog = MES_Project; Integrated Security = True;Timeout = 10");
         public Form1()
         {
             InitializeComponent();
-
-            LoadData();
+            try
+            {
+                LoadData();
+            }
+            catch 
+            {
+                MessageBox.Show("Can't connect to Databases", "Connection problem");
+                Environment.Exit(0);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
