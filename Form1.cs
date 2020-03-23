@@ -20,7 +20,7 @@ namespace AllRegistredProblems
             InitializeComponent();
             try
             {
-                LoadData();
+                LoadData();//
             }
             catch 
             {
